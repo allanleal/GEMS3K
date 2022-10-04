@@ -24,6 +24,7 @@
 // along with GEMS3K code. If not, see <http://www.gnu.org/licenses/>.
 //-------------------------------------------------------------------
 
+#include <string.h>  // needed for strlen
 #include "v_detail.h"
 #include "io_template.h"
 #include "io_nlohmann.h"

@@ -28,7 +28,7 @@
 // along with GEMS3K code. If not, see <http://www.gnu.org/licenses/>.
 //-------------------------------------------------------------------
 //
-
+#include <string.h>  // needed for strlen
 #include "ms_multi.h"
 #include "jama_lu.h"
 #include "jama_cholesky.h"
@@ -199,7 +199,7 @@ to_text_file( "MultiDumpD.txt" );   // Debugging
                 // no or only partial cleanup can be done
          pm.MK = 2;   // Set to check in CalculateEquilibriumState() later on
          if( pm.pNP )
-         {   // bad SIA mode - trying the AIA mode 
+         {   // bad SIA mode - trying the AIA mode
               goto FORCED_AIA;
          }
          goto FORCED_AIA; // even if in AIA, start over and go until r-1 then finish and do MBR
@@ -1170,23 +1170,23 @@ long int TMultiBase::MetastabilityLagrangeMultiplier()
             return J;
         if( pm.Y[J] < min( pm.lowPosNum, pm.DcMinM ))
             continue;
-// kg44 why use a switch? Much to complicated! Simply correct all the values that are to big or to small. 
-// values that are in the intervall given by DLL and DUL need no change.	
+// kg44 why use a switch? Much to complicated! Simply correct all the values that are to big or to small.
+// values that are in the intervall given by DLL and DUL need no change.
         if(pm.Y[J]<pm.DLL[J])
 	{
-	  if ((pm.DUL[J] - pm.DLL[J])/2.0 > E) 
+	  if ((pm.DUL[J] - pm.DLL[J])/2.0 > E)
 	    pm.Y[J]=pm.DLL[J]+E;
-	  else 
+	  else
 	    pm.Y[J]=pm.DLL[J]+(pm.DUL[J]-pm.DLL[J])/2.0; // this seems to work better than setting it directly to constraints
 	}
         if (pm.Y[J]>pm.DUL[J])
 	{
-	  if ((pm.DUL[J] - pm.DLL[J])/2.0 > E) 
+	  if ((pm.DUL[J] - pm.DLL[J])/2.0 > E)
 	    pm.Y[J]=pm.DUL[J]-E;
-	  else 
+	  else
 	    pm.Y[J]=pm.DLL[J]+(pm.DUL[J]-pm.DLL[J])/2.0; // this seems to work better than setting it directly to constraints
 	}
-	  
+
     }   // J
     return -1L;
 }
