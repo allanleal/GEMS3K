@@ -1801,7 +1801,6 @@ double TPitzer::lnGammaX( long int X, double DH_term )
     double GX5a, GX5;
     double GX6a, GX6;
     double GX;//,
-    double actcoeffX;
 
     // Term GX1 (Pitzer-Toughreact Report 2006, equation A4)
     GX1=(za[X]*za[X])*Ffac;
@@ -1878,8 +1877,6 @@ double TPitzer::lnGammaX( long int X, double DH_term )
 
     // Term GX
     GX = GX1+GX2+GX3+GX4+GX5+GX6;
-
-    actcoeffX = exp(GX);
 
     return GX;
 }
