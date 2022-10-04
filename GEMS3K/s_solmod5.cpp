@@ -1704,7 +1704,6 @@ double TPitzer::lnGammaM( long int M, double DH_term  )
     long int a, n, c1, a1;
     double GM1, GM2, alp, alp1, g1, g2, B2, C, x_alp,
                 GM3, GM3a, Phi, z, z1, Q, GM4, GM5a, GM5, GM6a, GM6, GM;
-    double actcoeffM;
 
     // Calculate GM1
     GM1 = (zc[M]*zc[M])*Ffac;
@@ -1786,7 +1785,6 @@ double TPitzer::lnGammaM( long int M, double DH_term  )
     // Term GM
     GM = GM1+GM2+GM3+GM4+GM5+GM6;
 
-    actcoeffM = exp(GM);
     return GM;
 }
 
