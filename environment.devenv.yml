@@ -1,18 +1,12 @@
 name: GEMS3K
 
 dependencies:
-  - gxx_linux-64=9.4.0  # [linux]
-  - cmake>=3.13
-  - ninja
-  - git
   - ccache  # [unix]
+  - clangxx_osx-64  # [osx]
+  - cmake>=3.13
+  - git
+  - gxx_linux-64  # [linux]
+  - ninja
   - nlohmann_json
-  - thermofun=0.4.0
-
-environment:
-
-  LD_LIBRARY_PATH:                                                   # [unix]
-    - {{ root }}/artifacts/lib                                       # [unix]
-
-  PATH:                                                              # [win]
-    - {{ root }}\artifacts\bin                                       # [win]
+  - thermofun =0.4.0
+  - vs2019_win-64  # [win]
